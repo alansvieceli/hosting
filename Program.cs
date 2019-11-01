@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
 namespace Hosting
@@ -8,8 +8,8 @@ namespace Hosting
     {
         static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-                .UseKestrel()
+            var host = WebHost
+                .CreateDefaultBuilder(args)
                 .UseStartup<StartUp>()
                 .Build();
 
